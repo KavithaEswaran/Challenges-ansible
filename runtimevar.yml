@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  vars_prompt:
+
+    # - name: username
+    #   prompt: What is your username?
+    #   private: no
+
+    - name: HOME
+      prompt: Enter Home variable to add to PATH?
+      private: no
+  tasks:
+
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: 'Path variable {{HOME }}'
+    - name: Set PATH variable 
+      shell: "PATH={{HOME}}/bin:$PATH"
+      register: output
+    - name: debugging the output
+      debug: 
+        var: output.stdout_lines
+    

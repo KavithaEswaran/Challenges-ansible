@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  become: yes
+  
+  tasks:  
+    - name: Create "Management" group
+      group:
+        name: Management
+        state: present
+
+    - name: Create "Sales" group
+      group:
+        name: Sales
+        state: present
+
+    - name: Create "Operations" group
+      group:
+          name: Operations 
+          state: present 
+
+    - name: Add user Jen to Management
+      user: 
+            name: jen  
+            shell: /bin/bash
+            groups: Management 
+            append: yes
+
+    - name: Add user Williams to all Groups
+      ansible.builtin.user: 
+            name: Williams  
+            shell: /bin/bash
+            groups: Management,Operations,Sales 
+            append: yes
+
+    - name: Add Matt to Sales group
+      ansible.builtin.user: 
+            name: Matt 
+            shell: /bin/bash
+            groups: Sales 
+            append: yes

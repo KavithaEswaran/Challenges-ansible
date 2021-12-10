@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+
+  tasks:  
+    - name: use script for the first time 
+      script: ./script.sh
+      register: output
+    - name: debugging the output
+      debug: 
+        var: output.stdout_lines

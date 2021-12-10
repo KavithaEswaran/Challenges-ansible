@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local 
+  tasks:
+  - name: write test msg
+    slack: 
+      token: T02EY9VFEHH/B02PZSM4ASH/fdTfe8ZResKnhA2v9sMiGcS0 #Use Webhooks token from https://api.slack.com/
+      msg: 'Hi Everyone,Kavitha here'
+      channel: '#week9'
+    delegate_to: localhost 

@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  
+  # vars_files:
+  #  - vars.yml 
+  tasks:
+  -  name: Create a file
+     shell: touch {{ my_path }}/test.txt
+  # - name: Run ls
+  #   shell: 'ls -ll'
+  #   register: output1
+  # - debug:
+  #     var: output1.stdout_lines
+  # -  name: echo in test
+  #   shell: echo "do not open" >> "{{ my_path }}/challenge1.yml"
+  # - name: Touch a file
+  #   shell: "touch {{ my_path }}/{{ file_name }}"
+  # - name: echo in "Do not Open!"
+  #   shell: echo "Do Not not Open!" >> {{ my_path }}/{{ file_name }}
+  -  name: echo in test
+     shell: echo "ansible-playbook variableaccess.yml --e '{"my_path":"/home/kavitha/.ansible/lab/XXX"}'" >> {{ my_path }}/test.txt
+  -  name: echo in test
+     shell: echo "ansible-playbook variableaccess.yml --extra-vars '{"my_path":"/home/kavitha/.ansible/lab/XXX"}'" >> {{ my_path }}/test.txt
+  -  name: echo in test
+     shell: echo "ansible-playbook variableaccess.yml -e='{"my_path":"/home/kavitha/.ansible/lab/XXX"}'" >> {{ my_path }}/test.txt
+
+ 

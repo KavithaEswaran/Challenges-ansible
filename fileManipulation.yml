@@ -1,0 +1,53 @@
+---
+- hosts: localhost
+ 
+  tasks:
+  - name: write msg
+    debug: msg="Ansible is working!"
+  - name: pwd
+    shell: pwd
+  - name: Run ls
+    shell: 'ls -l'
+    
+  - name: Create a newfiles directory 
+    file:
+      path: "/home/kavitha/.ansible/lab/newfiles"
+      state: directory
+      mode: '0755'
+
+  # - name: text files into newfolder
+  #   file: 
+  #     path: "/home/kavitha/.ansible/lab/newfiles/file1.txt"
+  #     state: touch 
+    
+    
+   
+  - name: Create multiple files
+    file: 
+      path: "/home/kavitha/.ansible/lab/newfiles/{{ item }}"
+      state: touch
+    with_items:
+    - test01.txt
+    - test02.txt
+    - test03.txt
+    - test04.txt
+
+      
+
+    
+  # - name: Delete content an empty file we just created
+  #   file:
+  #     path: "/home/kavitha/.ansible/lab/newfiles/file1.txt"
+  #     state: absent (edited) 
+ 
+  - name: Run ls
+    shell: 'ls -ll'
+    register: output1
+  - debug:
+      var: output1.stdout_lines
+  
+# - name: Create a newfiles directory 
+  # file:
+  #     path: "{{ my_path }}"
+  #     state: directory
+  #     mode: '0755'
