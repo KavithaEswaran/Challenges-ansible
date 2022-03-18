@@ -2,8 +2,8 @@
 - hosts: localhost
   tasks:
   - name: Run pwd
-    shell: pwd
+    ansible.builtin.command: pwd
   - name: Run ls
-    shell: ls
+    ansible.builtin.command: ls
   - name: Make a directory
-    shell: mkdir project
+    ansible.builtin.command: mkdir project
