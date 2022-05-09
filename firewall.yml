@@ -1,5 +1,9 @@
 ---
 - hosts: localhost
+  become: yes
   tasks:
-  - name: Run pwd
-    shell: pwd
+  - firewalld:
+    zone: custom
+    service: http
+    state: present
+    permanent: true

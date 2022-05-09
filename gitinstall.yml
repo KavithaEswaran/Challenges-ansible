@@ -1,0 +1,15 @@
+--- # install git on target host
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: install git
+    yum:
+      name: git
+      state: latest
+
+#vim /home/ansible/inventory add workstation host// to run ansible-playbook -i /home/ansible/inventory /home/ansible/git-setup.yml
+#to configure sudo access for ansible
+#sudo visudo
+#Add the following line to the file and save:
+
+#ansible    ALL=(ALL)       NOPASSWD: ALL

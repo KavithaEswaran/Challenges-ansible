@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    
+    - name: Install Apache
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: start and enable httpd
+      service: name=apache2 state=started enabled=yes

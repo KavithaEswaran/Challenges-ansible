@@ -11,7 +11,7 @@
     
   - name: Create a newfiles directory 
     file:
-      path: "/home/kavitha/.ansible/lab/newfiles"
+      path: "/mnt/c/Users/Kavitha.Eswaran/Ansible/NEWDir"
       state: directory
       mode: '0755'
 
@@ -24,7 +24,7 @@
    
   - name: Create multiple files
     file: 
-      path: "/home/kavitha/.ansible/lab/newfiles/{{ item }}"
+      path: "/mnt/c/Users/Kavitha.Eswaran/Ansible/NEWDir/{{ item }}"
       state: touch
     with_items:
     - test01.txt

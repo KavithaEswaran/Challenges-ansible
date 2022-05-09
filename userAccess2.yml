@@ -4,7 +4,7 @@
 
   tasks:  
     - name: use script for the first time 
-      script: ./script.sh
+      script: "/mnt/c/Users/Kavitha.Eswaran/Ansible/script.sh"
       register: output
     - name: debugging the output
       debug: 
